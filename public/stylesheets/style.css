@@ -1,0 +1,37 @@
+body {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.jumbotron {
+  font-family: 'Rock Salt', cursive;
+  background:
+    url('http://songslover.cc/tracks/images/justin-bieber-2015.jpg')
+    top center
+    no-repeat
+    fixed;
+  height: 75vh;
+  width: 100%;
+  color: white;
+}
+
+.bieberfy {
+  color: #f35626;
+  background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 2s infinite linear;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
+
+.navbar {
+  margin-bottom: 0;
+}
