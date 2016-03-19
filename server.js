@@ -5,8 +5,20 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// connect to mongoDB
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/bieberapp');
+
+// optional - listen for connection information
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  console.log('successfully connected to db');
+});
+
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var photos = require('./routes/photos');
 
 var app = express();
 
@@ -23,7 +35,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/photos', photos);
 
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
